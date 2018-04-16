@@ -1,79 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package operasimtk;
+package operasimatriks;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Syalma Tiara Aswi
- */
-public class OperasiMTK {    
-    /**
-     * @param args the command line arguments
-     */
+public class OperasiMatriks {
     public static void main(String[] args) {
-        System.out.println("\t=== Operasi Matematika Matriks A dan B ===\n");
+        // TODO code application logic here
+        int m = 0, n = 0, o, p, k;
+        System.out.println("\t=== Operasi Matematika Matriks ===\n");
         
         Scanner input = new Scanner(System.in);
         String pilih;
-        int m,n,p,o,k;
-        
-        //Matriks A
-        System.out.println("Ukuran matriks A");
-        System.out.print("Masukkan ukuran baris : ");
-        m = input.nextInt();
-        System.out.print("Masukkan ukuran kolom : ");
-        n = input.nextInt();
-        int A [][] = new int [m][n];
-        System.out.println("\t= Inputkan nilai-nilai untuk matriks A =");
-        for (int i = 0; i < A.length; i++){
-            for (int j = 0; j < A[0].length; j++){
-                System.out.print("Nilai A[" +i+ "][" +j+ "]\t: ");
-                A[i][j]= input.nextInt();
-            }
-        }
-        
-        //Matriks B
-        System.out.println("\nUkuran matriks B");
-        System.out.print("Masukkan ukuran baris : ");
-        p = input.nextInt();
-        System.out.print("Masukkan ukuran kolom : ");
-        o = input.nextInt();
-        int B [][] = new int [p][o];
-        System.out.println("\t= Inputkan nilai-nilai untuk matriks B =");
-        for (int i = 0; i < B.length; i++){
-            for (int j = 0; j < B[0].length; j++){
-                System.out.print("Nilai B[" +i+ "][" +j+ "]\t: ");
-                B[i][j]= input.nextInt();
-            }
-        }
-
-        //tampil matriks A
-        System.out.println("\nMatriks A = ");
-        for (int i = 0; i < A.length; i++){
-            for (int j = 0; j < A[0].length; j++){
-                System.out.print(" " + A[i][j]);
-            }
-            System.out.println(" ");
-        }
-
-        //tampil matriks B
-        System.out.println("Matriks B = ");
-        for (int i = 0; i < B.length; i++){
-            for (int j = 0; j < B[0].length; j++){
-                System.out.print(" " + B[i][j]);
-            }
-            System.out.println(" ");
-        }
-        
-        int C[][];
-        int [][] jumlah = new int [m][n];
-        int [][] kurang = new int [m][n];
-        int [][] kali   = new int [m][n];
         
         System.out.println("Pilihan operasi:"
                 + "\n1. Penjumlahan"
@@ -84,16 +20,64 @@ public class OperasiMTK {
         int Pilih;
         System.out.print("Pilih operasi matriks yang diinginkan : ");
         Pilih = input.nextInt();
-
-        //PENJUMLAHAN   
-        if (Pilih==1){
+        
+        
+        //PENJUMLAHAN
+        if (Pilih == 1){
+            //Matriks A
+            System.out.println("\n\tUkuran matriks A");
+            System.out.print("Masukkan ukuran baris : ");
+            m = input.nextInt();
+            System.out.print("Masukkan ukuran kolom : ");
+            n = input.nextInt();
+            int A [][] = new int [m][n];
+            System.out.println("\t= Inputkan nilai-nilai untuk matriks A =");
+            for (int i = 0; i < A.length; i++){
+                for (int j = 0; j < A[0].length; j++){
+                    System.out.print("Nilai A[" +i+ "][" +j+ "]\t: ");
+                    A[i][j]= input.nextInt();
+                }
+            }            
+            //Matriks B
+            System.out.println("\n\tUkuran matriks B");
+            System.out.print("Masukkan ukuran baris : ");
+            p = input.nextInt();
+            System.out.print("Masukkan ukuran kolom : ");
+            o = input.nextInt();
+            int B [][] = new int [p][o];
+            System.out.println("\t= Inputkan nilai-nilai untuk matriks B =");
+            for (int i = 0; i < B.length; i++){
+                for (int j = 0; j < B[0].length; j++){
+                    System.out.print("Nilai B[" +i+ "][" +j+ "]\t: ");
+                    B[i][j]= input.nextInt();
+                }
+            }
+            
+            //tampil matriks A
+            System.out.println("\nMatriks A = ");
+            for (int i = 0; i < A.length; i++){
+                for (int j = 0; j < A[0].length; j++){
+                    System.out.print(" " + A[i][j]);
+                }
+                System.out.println(" ");
+            }
+            //tampil matriks B
+            System.out.println("Matriks B = ");
+            for (int i = 0; i < B.length; i++){
+                for (int j = 0; j < B[0].length; j++){
+                    System.out.print(" " + B[i][j]);
+                }
+                System.out.println(" ");
+            }
+            
+            int [][] jumlah = new int [m][n];
             if (m==p&&n==o){
                 for (int i = 0; i < m; i++){
                     for (int j = 0; j <n; j++){
                     jumlah[i][j] = A[i][j]+B[i][j];
                     }
                 }
-                System.out.println("\nPenjumlahan matriks A dan B adalah");
+                System.out.println("\n\tPenjumlahan matriks A dan B adalah");
                 for (int i = 0; i < m; i++){
                     for (int j = 0; j <n; j++){
                         System.out.print(" " + jumlah[i][j]);
@@ -107,15 +91,63 @@ public class OperasiMTK {
             }
         }
         
+        
         //PENGURANGAN
-        else if (Pilih==2){
+        if (Pilih == 2){
+            //Matriks A
+            System.out.println("\n\tUkuran matriks A");
+            System.out.print("Masukkan ukuran baris : ");
+            m = input.nextInt();
+            System.out.print("Masukkan ukuran kolom : ");
+            n = input.nextInt();
+            int A [][] = new int [m][n];
+            System.out.println("\t= Inputkan nilai-nilai untuk matriks A =");
+            for (int i = 0; i < A.length; i++){
+                for (int j = 0; j < A[0].length; j++){
+                    System.out.print("Nilai A[" +i+ "][" +j+ "]\t: ");
+                    A[i][j]= input.nextInt();
+                }
+            }            
+            //Matriks B
+            System.out.println("\n\tUkuran matriks B");
+            System.out.print("Masukkan ukuran baris : ");
+            p = input.nextInt();
+            System.out.print("Masukkan ukuran kolom : ");
+            o = input.nextInt();
+            int B [][] = new int [p][o];
+            System.out.println("\t= Inputkan nilai-nilai untuk matriks B =");
+            for (int i = 0; i < B.length; i++){
+                for (int j = 0; j < B[0].length; j++){
+                    System.out.print("Nilai B[" +i+ "][" +j+ "]\t: ");
+                    B[i][j]= input.nextInt();
+                }
+            }
+            
+            //tampil matriks A
+            System.out.println("\n\tMatriks A = ");
+            for (int i = 0; i < A.length; i++){
+                for (int j = 0; j < A[0].length; j++){
+                    System.out.print(" " + A[i][j]);
+                }
+                System.out.println(" ");
+            }
+            //tampil matriks B
+            System.out.println("\tMatriks B = ");
+            for (int i = 0; i < B.length; i++){
+                for (int j = 0; j < B[0].length; j++){
+                    System.out.print(" " + B[i][j]);
+                }
+                System.out.println(" ");
+            }
+            
+            int [][] kurang = new int [m][n];
             if (m==p&&n==o){
                 for (int i = 0; i < m; i++){
                     for (int j = 0; j <n; j++){
                         kurang[i][j]= A[i][j]-B[i][j];
                     }
                 }
-                System.out.println("\nPengurangan matriks A dan B adalah");
+                System.out.println("\n\tPengurangan matriks A dan B adalah");
                 for (int i = 0; i < m; i++){
                     for (int j = 0; j <n; j++){
                         System.out.print(" " + kurang[i][j]);
@@ -129,58 +161,157 @@ public class OperasiMTK {
             }
         }
         
+        
         //PERKALIAN
-        else if (Pilih==3){
+        if (Pilih == 3){
+            //Matriks A
+            System.out.println("\n\tUkuran matriks A");
+            System.out.print("Masukkan ukuran baris : ");
+            m = input.nextInt();
+            System.out.print("Masukkan ukuran kolom : ");
+            n = input.nextInt();
+            int A [][] = new int [m][n];
+            System.out.println("\t= Inputkan nilai-nilai untuk matriks A =");
+            for (int i = 0; i < A.length; i++){
+                for (int j = 0; j < A[0].length; j++){
+                    System.out.print("Nilai A[" +i+ "][" +j+ "]\t: ");
+                    A[i][j]= input.nextInt();
+                }
+            }            
+            //Matriks B
+            System.out.println("\n\tUkuran matriks B");
+            System.out.print("Masukkan ukuran baris : ");
+            p = input.nextInt();
+            System.out.print("Masukkan ukuran kolom : ");
+            o = input.nextInt();
+            int B [][] = new int [p][o];
+            System.out.println("\t= Inputkan nilai-nilai untuk matriks B =");
+            for (int i = 0; i < B.length; i++){
+                for (int j = 0; j < B[0].length; j++){
+                    System.out.print("Nilai B[" +i+ "][" +j+ "]\t: ");
+                    B[i][j]= input.nextInt();
+                }
+            }
+            
+            //tampil matriks A
+            System.out.println("\n\tMatriks A = ");
+            for (int i = 0; i < A.length; i++){
+                for (int j = 0; j < A[0].length; j++){
+                    System.out.print(" " + A[i][j]);
+                }
+                System.out.println(" ");
+            }
+            //tampil matriks B
+            System.out.println("\tMatriks B = ");
+            for (int i = 0; i < B.length; i++){
+                for (int j = 0; j < B[0].length; j++){
+                    System.out.print(" " + B[i][j]);
+                }
+                System.out.println(" ");
+            }
+            
+            int matrix3[][] = new int[m][n];
+            int [][] kali   = new int [m][n];
             if (m==p&&n==o){
-                for (int i = 0; i < m; i++){
-                    for (int j = 0; j < o; j++){
-                        kali[i][j] = 0;
-                        for (int e = 0; e < p; e++){
-                            kali[i][j] += A[i][j] * B[i][j];
-                        }                        
-                    }
+                for (int i = 0; i < A.length; i++){
+                    for (int j = 0; j < A[0].length; j++){
+                        int total = 0; 
+                        for (int q = 0; q < A.length; q++){
+                            total = total +  (A[i][q] * B[q][j]);
+                        }
+                        matrix3[i][j] = total;
+                    }       
                 }
-                System.out.println("\nPerkalian matriks A dan B adalah");
-                for (int i = 0; i < m; i++){
-                    for (int j = 0; j < o; j++){
-                        System.out.print(" " + kali[i][j]);
-                    }
-                    System.out.println(" ");
+                System.out.println("\n\tPerkalian matriks A dan B adalah");
+                for (int i = 0; i < matrix3.length; i++){
+                    for (int j = 0; j < matrix3[0].length; j++){
+                        System.out.print( matrix3[i][j] + " ");
+                    }       
+                    System.out.println();
                 }
+            }
+            //Operasi Perkalian hanya baru bisa pada ordo yang sama
+            else {
+                System.out.println("\nOperasi Perkalian belum tersedia");
             }
         }
         
+        
         //PERKALIAN dengan SKALAR
-        else if (Pilih==4){
+        if (Pilih == 4){
+            //Output Matriks
+            System.out.println("\n\tUkuran matriks");
+            System.out.print("Masukkan ukuran baris : ");
+            m = input.nextInt();
+            System.out.print("Masukkan ukuran kolom : ");
+            n = input.nextInt();
+            int A [][] = new int [m][n];
+            System.out.println("\t= Inputkan nilai-nilai untuk matriks =");
+            for (int i = 0; i < A.length; i++){
+                for (int j = 0; j < A[0].length; j++){
+                    System.out.print("Nilai [" +i+ "][" +j+ "]\t: ");
+                    A[i][j]= input.nextInt();
+                }
+            }
+            //tampil matriks
+            System.out.println("\nMatriks = ");
+            for (int i = 0; i < A.length; i++){
+                for (int j = 0; j < A[0].length; j++){
+                    System.out.print(" " + A[i][j]);
+                }
+                System.out.println(" ");
+            }
+            
+            int [][] kali   = new int [m][n];
             System.out.print("\nMasukkan Nilai Skalar : ");
             k = input.nextInt();
-            //Matriks A
+            //Matriks
             for (int i = 0; i < m; i++){
                 for (int j = 0; j <n; j++){
                     kali[i][j]=A[i][j]*k;
                 }
             }
-            System.out.println("Perkalian k dengan matriks A adalah");
+            System.out.println("\tPerkalian k dengan matriks adalah");
             for (int i = 0; i < m; i++){
                 for (int j = 0; j < n; j++){
                     System.out.print(" " + kali[i][j]);
                 }
                 System.out.println(" ");
             }
-            //Matriks B
-            for (int i = 0; i < p; i++){
-                for (int j = 0; j <o; j++){
-                    kali[i][j]=B[i][j]*k;
+        }
+        
+        
+        //TRANSPOSE
+        if(Pilih == 5){
+            //Output Matriks
+            System.out.println("\n\tUkuran matriks");
+            System.out.print("Masukkan ukuran baris : ");
+            m = input.nextInt();
+            System.out.print("Masukkan ukuran kolom : ");
+            n = input.nextInt();
+            int A [][] = new int [m][n];
+            System.out.println("\t= Inputkan nilai-nilai untuk matriks =");
+            for (int i = 0; i < A.length; i++){
+                for (int j = 0; j < A[0].length; j++){
+                    System.out.print("Nilai [" +i+ "][" +j+ "]\t: ");
+                    A[i][j]= input.nextInt();
                 }
             }
-            System.out.println("Perkalian k dengan matriks B adalah");
-            for (int i = 0; i < p; i++){
-                for (int j = 0; j < o; j++){
-                    System.out.print(" " + kali[i][j]);
+            //tampil matriks
+            System.out.println("\nMatriks = ");
+            for (int i = 0; i < A.length; i++){
+                for (int j = 0; j < A[0].length; j++){
+                    System.out.print(" " + A[i][j]);
+                }
+                System.out.println(" ");
+            }
+            System.out.println("\tTranspose matriks adalah");
+            for (int j=0;j<n;j++){
+                for (int i=0;i<m;i++){
+                    System.out.print(A[i][j]+" ");
                 }
                 System.out.println(" ");
             }
         }
-        
-    }    
+    }   
 }
